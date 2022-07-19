@@ -18,8 +18,10 @@ public class MaxProfit {
     // 非动态规划解法
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length == 0) return 0;
+        // 默认第一天买入第一天卖出 收益是0
         int minPrice = prices[0], maxPrice = 0;
         for (int i = 1; i < prices.length; i++) {
+            // 第i天的价格比买入的那天还少 即为花三块买的1块卖 赔本不能卖
             if (prices[i] < minPrice) {
                 minPrice = prices[i];
             } else {
@@ -28,4 +30,12 @@ public class MaxProfit {
         }
         return maxPrice;
     }
+
+    // 动态规划
+    public int maxProfit1(int[] prices) {
+        if (prices == null || prices.length == 0) return 0;
+        // 第I天买第J天卖 动态规划是求 I~J的两两天数之间差值的全部和
+        return 0;
+    }
+
 }

@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.DP;
 
 /**
  * https://leetcode.cn/problems/li-wu-de-zui-da-jie-zhi-lcof/
