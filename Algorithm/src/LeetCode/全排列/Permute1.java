@@ -3,7 +3,7 @@ package LeetCode.全排列;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LetterCombinations {
+public class Permute1 {
     private  List<List<Integer>> list;
     private int[] nums;
 
