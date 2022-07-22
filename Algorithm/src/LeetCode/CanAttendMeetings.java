@@ -25,7 +25,7 @@ public class CanAttendMeetings {
         for (int i = 1; i < intervals.length; i++) {
             if (intervals[i][0] < intervals[i - 1][1]) return false;
         }
-        return false;
+        return true;
     }
 
 }
