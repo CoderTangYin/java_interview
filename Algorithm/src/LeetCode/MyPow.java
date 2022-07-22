@@ -16,5 +16,5 @@ public class MyPow {
         return odd ? (half * x) : half;
     }
 
-    
+
 }
