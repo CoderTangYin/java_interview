@@ -1,6 +1,8 @@
 package LeetCode;
 
 public class MyPow {
+
+    // 递归
     public double myPow(double x, int n) {
         // 任何数的0次幂都是1
         if (n == 0) return 1;
@@ -12,6 +14,7 @@ public class MyPow {
         double half = myPow(x,n>>1);
         half *= half;
         return odd ? (half * x) : half;
-
     }
+
+    
 }
