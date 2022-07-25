@@ -9,8 +9,8 @@ public class MaxArea {
     public int maxArea(int[] height) {
         if (height == null || height.length == 0) return 0;
         // 左边的柱子 右边的柱子 盛水的面积
-        int l = 0, r = height.length, waterArea = 0;
-        while (l > r) {
+        int l = 0, r = height.length - 1, waterArea = 0;
+        while (l < r) {
             if (height[l] <= height[r]) {
                 int minH = height[l];
                 waterArea = Math.max(waterArea, (r - l) * minH);
