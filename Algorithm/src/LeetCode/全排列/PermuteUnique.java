@@ -53,6 +53,7 @@ public class PermuteUnique {
         for (int j = idx; j < i; j++) {
             if (nums[j] == nums[i]) return true;
         }
+        return false;
     }
 
     private void swap(int i, int j) {
