@@ -1,8 +1,6 @@
 package LeetCode.Queue;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * 输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3
@@ -47,6 +45,33 @@ public class SlidingWindow {
             if (i >= k - 1) {
                 windowMax[windowIdx++] = nums[deque.peek()]; // 获取队头元素
             }
+        }
+        return windowMax;
+
+    }
+
+    public int[] maxSlidingWindow1(int[] nums, int k) {
+        if (nums == null || nums.length == 0 || k < 1) return new int[0];
+        int[] windowMax = new int[nums.length - k + 1];
+
+        // 队列里边加入的索引 从对头到对位是逐渐变小的
+        Deque<Integer> integerDeque = new LinkedList<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            // 如果当前的大于队尾的元素 则从队尾开始往前寻找直到找到大于它的为止
+            while (!integerDeque.isEmpty() && nums[i] >= nums[integerDeque.getLast()]) {
+                integerDeque.pollLast();
+            }
+            integerDeque.offer(i);
+            // 确定滑动窗口的第一个元素的索引
+            int w = i - k + 1;
+            // 没到数组的第一个元素的情况 即为滑动窗口的数据还没满
+            if (w < 0) continue;
+            // 滑动窗口的对头索引 < w 即为已经超过K的个数
+            if (integerDeque.peekFirst() < w) {
+                integerDeque.pollFirst();
+            }
+            windowMax[w] = nums[integerDeque.peekFirst()];
         }
         return windowMax;
 
