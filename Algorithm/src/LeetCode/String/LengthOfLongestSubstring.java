@@ -19,6 +19,23 @@ public class LengthOfLongestSubstring {
      */
     public int lengthOfLongestSubstring(String s) {
         if (s == null) return 0;
-       return 0;
+        char[] chars = s.toCharArray();
+        if (chars.length == 0) return 0;
+        Map<Character, Integer> map = new HashMap<>();
+        map.put(chars[0], 0);
+        // i-1位置出现字符的最长不重复开始位置
+        int li = 0;
+        int maxLength = 1;
+        for (int i = 0; i < chars.length; i++) {
+            Integer pi = map.get(chars[i]);
+            // 自己前一个字符出现的位置在自己第一次出现的左侧的情况
+            // 自己前一个字符第一次出现的位置到自己出现的位置
+            if (pi != null && li <= pi) {
+                li = pi + 1;
+            }
+            map.put(chars[i], i);
+            maxLength = Math.max(maxLength, i - li + 1);
+        }
+       return maxLength;
     }
 }
