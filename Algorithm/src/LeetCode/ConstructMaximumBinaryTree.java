@@ -47,8 +47,11 @@ public class ConstructMaximumBinaryTree {
         for (int i = l + 1; i < r; i++) {
             if (nums[i] > nums[maxIdx]) maxIdx = i;
         }
+        // 从整个数组里边找到最大的一个数作为根节点
         TreeNode root = new TreeNode(nums[maxIdx]);
+        // 递归的方式构建0~最大数的左子树
         root.left = findRoot(nums,l, maxIdx);
+        // 递归的方式构建最大数+1 ~ 数组长度构建的又子树
         root.right = findRoot(nums, maxIdx, r);
         return root;
     }

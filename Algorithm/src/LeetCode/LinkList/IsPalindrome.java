@@ -16,6 +16,7 @@ public class IsPalindrome {
     public boolean isPalindrome(ListNode head) {
         if (head == null || head.next == null) return true;
         if (head.next.next == null) return head.val == head.next.val;
+        // 找到中间节点并进行反转
         ListNode rh = reverseNode(middleNode(head));
         ListNode lh = head;
         ListNode roldh = rh;
@@ -41,6 +42,7 @@ public class IsPalindrome {
     }
 
     private ListNode reverseNode(ListNode head) {
+        if (head == null) return null;
         ListNode newHead = null;
         while (head != null) {
             ListNode temp = head.next;

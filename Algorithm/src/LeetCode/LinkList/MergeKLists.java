@@ -34,7 +34,7 @@ public class MergeKLists {
         ListNode tail = dummyHead;
         // 层序遍历每个头结点
         PriorityQueue<ListNode> queue = new PriorityQueue<>((ListNode l1, ListNode l2) -> {
-            return l1.val = l2.val;
+            return l1.val - l2.val;
         });
         // 把头结点加进去
         for (ListNode l : lists) {
