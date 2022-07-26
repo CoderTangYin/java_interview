@@ -22,6 +22,7 @@ public class LengthOfLongestSubstring {
         char[] chars = s.toCharArray();
         if (chars.length == 0) return 0;
         Map<Character, Integer> map = new HashMap<>();
+        // 默认0位置是出现的最长的
         map.put(chars[0], 0);
         // i-1位置出现字符的最长不重复开始位置
         int li = 0;
@@ -41,6 +42,10 @@ public class LengthOfLongestSubstring {
             if (pi != null && li <= pi) {
                 li = pi + 1;
             }
+
+            /**
+             * pi 不存在的时候 即为只是考虑自己前一个字符最后出现的位置即可
+             */
             map.put(chars[i], i);
             maxLength = Math.max(maxLength, i - li + 1);
         }
