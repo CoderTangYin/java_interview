@@ -4,6 +4,14 @@ package LeetCode.String;
  * 翻转字符串里的单词
  * <p>
  * 按着正常的英文句子 删除多余的空格
+ * "  hello world!   "
+ * "a good   example"
+ * "are you ok"
+ *
+ * 核心思想：
+ * ① 消除字符串中多余的空格
+ * ② 字符串整体逆序
+ * ③ 以空格分隔符 对每个单词进行逆序
  */
 public class ReverseWords {
 
