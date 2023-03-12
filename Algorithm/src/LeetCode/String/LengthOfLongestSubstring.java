@@ -21,6 +21,7 @@ public class LengthOfLongestSubstring {
         if (s == null) return 0;
         char[] chars = s.toCharArray();
         if (chars.length == 0) return 0;
+        // 记录每个字符出现的位置
         Map<Character, Integer> map = new HashMap<>();
         // 默认0位置是出现的最长的
         map.put(chars[0], 0);
