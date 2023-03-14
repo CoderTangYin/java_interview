@@ -35,7 +35,15 @@ public class MaxProfit {
     public int maxProfit1(int[] prices) {
         if (prices == null || prices.length == 0) return 0;
         // 第I天买第J天卖 动态规划是求 I~J的两两天数之间差值的全部和
-        return 0;
+        int dp[] = new int[prices.length];
+        int maxProfit = 0;
+        dp[0] = prices[1] - prices[0];
+        maxProfit = Math.max(0, dp[0]);
+        for (int i = 2; i < prices.length; i++) {
+           maxProfit = Math.max(maxProfit, dp[i] + dp[i-1]);
+           dp[i] = prices[i] - prices[i-1];
+        }
+        return maxProfit;
     }
 
 }
